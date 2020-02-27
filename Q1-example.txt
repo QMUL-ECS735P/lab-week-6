@@ -1,0 +1,63 @@
+# Arthur is a brother of Mary.
+# Arthur is the only brother of Mary.
+# The only brother of Mary is the father of Harry.
+# The only brother of Mary is the father of the only sister of William.
+
+# Define classes
+ex:Male a owl:Class;
+	  rdfs:subClassOf foaf:Person.
+
+ex:Female a owl:Class.
+	  rdfs:subClassOf foaf:Person.
+  
+ex:BrotherOfMary a owl:Class;
+	  rdfs:subClassOf ex:Male.
+  
+ex:SisterOfWilliam a owl:Class;
+	rdfs:subClassOf ex:Female.
+
+# Define properties
+ex:hasBrother a owl:ObjectProperty;
+	  rdfs:domain foaf:Person;
+	  rdfs:range ex:Male.
+
+ex:hasFather a owl:ObjectProperty;
+	  rdfs:domain foaf:Person;
+	  rdfs:range ex:Male.
+
+ex:hasSister a owl:ObjectProperty;
+	  rdfs:domain foaf:Person;
+	  rdfs:range ex:Female.
+
+
+# Define individuals
+:arthur a ex:Male.
+
+:mary a ex:Female;
+	  ex:hasBrother ex:BrotherOfMary.
+
+:harry a ex:Male;
+	  ex:hasFather ex:BrotherOfMary.
+
+:william a ex:Male;
+	  ex:hasSister [ex:hasFather ex:BrotherOfMary].
+
+
+# Define "only" restriction
+ex:BrotherOfMary owl:equivalentClass [
+	  a owl:Restriction;
+	  owl:onProperty ex:hasBrother;
+	  owl:hasValue :arthur
+] .
+
+ex:SisterOfWilliam 
+	  rdfs:subClassOf [
+		    a owl:Restriction;
+		    owl:onProperty ex:hasSister;
+		    owl:hasValue [ ex:hasFather ex:BrotherOfMary ] 
+    ] ;
+	  rdfs:subClassOf [
+		    a owl:Restriction;
+		    owl:onProperty ex:hasSister;
+		    owl:maxCardinality "1"^^<http://www.23.org/2001/XMLSchema#int> 
+		] .
