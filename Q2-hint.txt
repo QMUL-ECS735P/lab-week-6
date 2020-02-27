@@ -1,0 +1,52 @@
+# The only animals in this house are cats
+# Every animal that loves to gaze at the moon is suitable for a pet
+# When I detest an animal, I avoid it
+# No animals are carnivorous unless they prowl at night
+# No cat fails to catch mice
+# No animals ever take to me, except what are in this house
+# Kangaroos are not suitable for pets
+# None but carnivora kill mice
+# I detest animals that do not take to me
+# Animals that prowl at night always love to gaze at the moon
+# Therefore, I always avoid a kangaroo
+
+First, simplify the statements:
+
+h - animals in the house
+c - cats
+p - animals suitable for pet n
+g - animals that love to gaze at the moon
+d - animals I detest
+a - animals I avoid
+v - carnivorous animals
+n - animals prowl at night
+m - killers of mice
+t - aniamals that take to me
+k - kangaroo
+
+Work out the relationship between each statement. --> means entails, ~ is logical negation (NOT):
+
+h --> c 
+g --> p
+d --> a (~a --> ~d)
+v --> n
+c --> m
+t --> h
+k --> ~p (p --> ~k)
+m --> v
+~t --> d (~d --> t)
+n --> g
+
+What does this imply?
+
+~a --> ~d --> t --> h --> c --> m --> v --> n --> g --> p --> ~k
+
+This can be reduced to:
+
+~a --> ~k
+
+Which means the opposite is true:
+
+k --> a
+
+Kangaroos are animals I avoid!
