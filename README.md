@@ -86,7 +86,7 @@ When you're finished save ontology twice, one with Turtle formatting and once wi
 Inspect the two files in a text editor and compare them with the ontologies you created manually in the previous two steps. What differences are there?
 
 ## 3. Creating Ontologies from Natural Language
-Now, similar to last week, you must construct an ontology in Protege to prove the following argument is valid:
+Now, similar to last week, you must construct an ontology in Protege to represent the following statements:
 
 - The only animals in this house are cats
 - Every animal that loves to gaze at the moon is suitable as a pet
@@ -98,6 +98,8 @@ Now, similar to last week, you must construct an ontology in Protege to prove th
 - Only carnivorous animals kill mice
 - I hate animals that do not like me
 - Animals that prowl at night always love to gaze at the moon
-- Therefore, I always avoid kangaroos
+- I always avoid kangaroos
+
+Use the reasoner to check there arent any problems. 
 
 As with before, start by collecting the necessary classes, properties, and individuals. Think back to last week and use the reasoner in Protege to ensure your ontology is consistent.
